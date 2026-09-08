@@ -1,0 +1,41 @@
+
+########## AXIS 1  Interval-IoU vs rule (lower = more patient-specific)  (n=155 paired patients) ##########
+  tier means: {'weak': np.float64(0.4293), 'mid': np.float64(0.3757), 'strong': np.float64(0.4017)}
+  Friedman chi2 = 21.252, p = 2.428e-05
+  -- vs rule identity (IoU=1.0), one-sample Wilcoxon --
+     weak  : raw p=3.47e-27  Holm p=1.04e-26
+     mid   : raw p=3.47e-27  Holm p=1.04e-26
+     strong: raw p=3.47e-27  Holm p=1.04e-26
+  -- pairwise Wilcoxon signed-rank (Holm-corrected) --
+     weak   vs mid   : raw p=3.25e-08  Holm p=9.75e-08  rank-biserial=+0.512
+     weak   vs strong: raw p=6.20e-03  Holm p=6.20e-03  rank-biserial=+0.253
+     mid    vs strong: raw p=2.33e-03  Holm p=4.67e-03  rank-biserial=-0.282
+
+########## AXIS 3  Raw safety-floor breaches (per patient)  (n=155 paired patients) ##########
+  tier means: {'weak': np.float64(0.5161), 'mid': np.float64(0.2968), 'strong': np.float64(0.3742)}
+  Friedman chi2 = 5.084, p = 7.872e-02
+  -- pairwise Wilcoxon signed-rank (Holm-corrected) --
+     weak   vs mid   : raw p=1.61e-03  Holm p=4.82e-03  rank-biserial=+0.526
+     weak   vs strong: raw p=6.19e-02  Holm p=1.24e-01  rank-biserial=+0.288
+     mid    vs strong: raw p=7.68e-02  Holm p=1.24e-01  rank-biserial=-0.273
+
+  >>> Floor-necessity argument (point estimates, not a null test):
+     weak  : mean breaches=0.516, 26.5% of patients have >=1 raw breach
+     mid   : mean breaches=0.297, 21.3% of patients have >=1 raw breach
+     strong: mean breaches=0.374, 28.4% of patients have >=1 raw breach
+     => every tier produces raw breaches; the code floor is required regardless of tier (no reliance on a non-significant test).
+
+
+########## AXIS 2  LLM vs fixed rule: value, not just difference ##########
+
+  --- feasibility (all patients) ---
+     rule (C2 aggressive): 0.9871
+     weak  : LLM mean=0.9613  (Δ vs rule=-0.0258, paired Wilcoxon p=4.55e-02, n=155)
+     mid   : LLM mean=0.9484  (Δ vs rule=-0.0387, paired Wilcoxon p=5.78e-02, n=155)
+     strong: LLM mean=0.9742  (Δ vs rule=-0.0129, paired Wilcoxon p=3.17e-01, n=155)
+
+  --- sparsity: mean vars changed (lower = sparser), jointly-feasible only ---
+     rule (C2 aggressive), all feasible: 10.607
+     weak  : LLM=13.919 vs rule=10.478  (Δ=+3.441, paired Wilcoxon p=2.19e-14, n=149 jointly-feasible)
+     mid   : LLM=11.647 vs rule=10.400  (Δ=+1.247, paired Wilcoxon p=5.37e-05, n=145 jointly-feasible)
+     strong: LLM=14.977 vs rule=10.525  (Δ=+4.453, paired Wilcoxon p=3.07e-18, n=150 jointly-feasible)
