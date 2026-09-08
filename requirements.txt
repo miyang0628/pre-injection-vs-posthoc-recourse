@@ -1,0 +1,16 @@
+# Python 3.10+
+# Core versions match the paper's reported environment where noted.
+xgboost==2.0.3
+dice-ml==0.11
+openai>=1.0
+optuna>=3.0
+scikit-learn>=1.0
+pandas>=1.5
+numpy>=1.23
+pyreadstat>=1.2
+joblib>=1.2
+matplotlib>=3.6
+seaborn>=0.12
+tqdm>=4.64
+pillow>=9.0
+python-dotenv>=1.0

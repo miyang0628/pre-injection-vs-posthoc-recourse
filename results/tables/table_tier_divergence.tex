@@ -1,0 +1,14 @@
+\begin{table}[ht]
+\centering
+\caption{LLM guardrail behaviour across model tiers, on sampled Class~3 patients. Interval IoU is measured against the fixed-ratio rule baseline on delegated (Layer-2) variables (lower = more patient-specific); raw safety breaches count how often the model's pre-correction range would have crossed an absolute safety floor (higher = more reliant on the code-level guardrail). Layer-1 floors are enforced identically for every tier.}
+\label{tab:tier_divergence}
+\begin{tabular}{lccc}
+\toprule
+Tier (model) & Mean IoU vs rule & Raw safety breaches & Feasibility \\
+\midrule
+  weak (gpt-4o-mini) & 0.429 & 0.52 & 96.1% \\
+  mid (gpt-5.4-mini) & 0.376 & 0.30 & 94.8% \\
+  strong (gpt-5.4) & 0.402 & 0.37 & 97.4% \\
+\bottomrule
+\end{tabular}
+\end{table}
