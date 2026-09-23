@@ -1,0 +1,4 @@
+scenario,c3_mult,c1_mult,pre_recourse,post_recourse,exposure_reduction_pct
+Low (conservative),1.8,1.2,653,368,43.7
+Mid (French-anchored),2.56,1.4,929,373,59.9
+High (upper band),3.3,1.6,1198,378,68.5
